@@ -13,3 +13,16 @@ export const useUserStore = defineStore("user", {
     },
   },
 });
+
+export const useComStore = defineStore("compositon", {
+  state() {
+    return {
+      isCollapse: false,
+    };
+  },
+  actions: {
+    switchCollapse() {
+      this.isCollapse = !this.isCollapse;
+    },
+  },
+});

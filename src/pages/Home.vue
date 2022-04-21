@@ -1,13 +1,15 @@
 <template>
-  <div class="box">
-    <div>
-      <div class="title">Home页面</div>
+  <div class="app">
+    <div class="layout-left">
+      <LeftMenu></LeftMenu>
+    </div>
+    <div class="layout-right">
       <div>
-        <button @click="getInHello">跳转到Hello页面</button>
+        <LayOutHeader></LayOutHeader>
+        <MidTabs></MidTabs>
       </div>
-      <div>
-        <span>计数：{{ userStore.count }}</span>
-        <button @click="userStore.add">+1</button>
+      <div class="layout-content">
+        <router-view></router-view>
       </div>
     </div>
   </div>
@@ -15,28 +17,33 @@
 
 <script setup lang="ts">
 import { useRouter } from "vue-router";
-import { useUserStore } from "../store";
-
-const router = useRouter();
-const userStore = useUserStore();
-
-function getInHello() {
-  router.push({
-    name: "hello",
-  });
-}
+import LeftMenu from "@/components/layout/LeftMenu/LeftMenu.vue";
+import LayOutHeader from "@/components/layout/LayOutHeader/LayOutHeader.vue";
+import MidTabs from "@/components/layout/MidTabs/MidTabs.vue";
 </script>
 
 <style scoped lang="scss">
-.box {
-  height: 100vh;
+.app {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  overflow: hidden;
+  .layout-right {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100vh;
+    .layout-content {
+      width: 100%;
+      overflow-y: scroll;
+    }
+  }
 }
-.title {
-  font-size: 30px;
-  font-weight: bold;
-  color: cornflowerblue;
+.layout-left {
+  overflow-y: scroll;
+  height: 100vh;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 </style>

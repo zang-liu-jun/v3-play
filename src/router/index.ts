@@ -5,11 +5,14 @@ const routes = [
     path: "/",
     name: "home",
     component: () => import("@/pages/Home.vue"),
-  },
-  {
-    path: "/hello",
-    name: "hello",
-    component: () => import("@/pages/Hello.vue"),
+    children: [
+      {
+        path: "func/clipboard",
+        name: "clipboard",
+        component: () =>
+          import("@/components/show-function/clipboard/ClipBoard.vue"),
+      },
+    ],
   },
 ];
 
