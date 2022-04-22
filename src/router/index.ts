@@ -12,6 +12,18 @@ const routes = [
         component: () =>
           import("@/components/show-function/clipboard/ClipBoard.vue"),
       },
+      {
+        path: "func/drag",
+        name: "drag",
+        component: () =>
+          import("@/components/show-function/draggable/ShowDrag.vue"),
+      },
+      {
+        path: "func/lazy-load",
+        name: "lazy",
+        component: () =>
+          import("@/components/show-function/lazyLoad/ShowLazyLoad.vue"),
+      },
     ],
   },
 ];

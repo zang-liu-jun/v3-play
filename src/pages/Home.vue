@@ -9,7 +9,13 @@
         <MidTabs></MidTabs>
       </div>
       <div class="layout-content">
-        <router-view></router-view>
+        <el-scrollbar>
+          <router-view v-slot="{ Component }">
+            <ContentTransition>
+              <component :is="Component"></component>
+            </ContentTransition>
+          </router-view>
+        </el-scrollbar>
       </div>
     </div>
   </div>
@@ -20,6 +26,7 @@ import { useRouter } from "vue-router";
 import LeftMenu from "@/components/layout/LeftMenu/LeftMenu.vue";
 import LayOutHeader from "@/components/layout/LayOutHeader/LayOutHeader.vue";
 import MidTabs from "@/components/layout/MidTabs/MidTabs.vue";
+import ContentTransition from "@/components/common/transition/ContentTransition.vue";
 </script>
 
 <style scoped lang="scss">
@@ -34,8 +41,13 @@ import MidTabs from "@/components/layout/MidTabs/MidTabs.vue";
     flex: 1;
     height: 100vh;
     .layout-content {
+      flex: 1;
       width: 100%;
       overflow-y: scroll;
+      background-color: #f0f2f5;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 }
