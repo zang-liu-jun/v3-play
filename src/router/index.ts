@@ -24,6 +24,12 @@ const routes = [
         component: () =>
           import("@/components/show-function/lazyLoad/ShowLazyLoad.vue"),
       },
+      {
+        path: "func/drag-load",
+        name: "dragLoad",
+        component: () =>
+          import("@/components/show-components/dragLoad/ShowDragLoad.vue"),
+      },
     ],
   },
 ];
