@@ -25,7 +25,13 @@ const routes = [
           import("@/components/show-function/lazyLoad/ShowLazyLoad.vue"),
       },
       {
-        path: "func/drag-load",
+        path: "func/websocket",
+        name: "websocket",
+        component: () =>
+          import("@/components/show-function/websocket/ShowWebSocket.vue"),
+      },
+      {
+        path: "components/drag-load",
         name: "dragLoad",
         component: () =>
           import("@/components/show-components/dragLoad/ShowDragLoad.vue"),

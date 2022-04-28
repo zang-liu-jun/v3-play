@@ -1,8 +1,12 @@
 <template>
-  <div class="mid-tabs"></div>
+  <div class="mid-tabs">
+    <TabsBar></TabsBar>
+  </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import TabsBar from "@/components/TabsBar/TabsBar.vue";
+</script>
 
 <style scoped lang="scss">
 .mid-tabs {

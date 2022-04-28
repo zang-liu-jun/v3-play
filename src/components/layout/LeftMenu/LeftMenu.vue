@@ -14,14 +14,17 @@
         <el-icon><grid /></el-icon>
         <span>功能</span>
       </template>
-      <el-menu-item index="1-1" @click="router.push({ name: 'clipboard' })"
+      <el-menu-item index="1-1" @click="goInto('clipboard', '剪切板')"
         >剪切板</el-menu-item
       >
-      <el-menu-item index="1-2" @click="router.push({ name: 'drag' })"
+      <el-menu-item index="1-2" @click="goInto('drag', '拖动组件')"
         >拖动组件</el-menu-item
       >
-      <el-menu-item index="1-3" @click="router.push({ name: 'lazy' })"
+      <el-menu-item index="1-3" @click="goInto('lazy', '图片懒加载')"
         >图片懒加载</el-menu-item
+      >
+      <el-menu-item index="1-4" @click="goInto('websocket', 'websocket')"
+        >websocket</el-menu-item
       >
     </el-sub-menu>
 
@@ -30,7 +33,7 @@
         <el-icon><icon-menu /></el-icon>
         <span>组件</span>
       </template>
-      <el-menu-item index="2-1" @click="router.push({ name: 'dragLoad' })"
+      <el-menu-item index="2-1" @click="goInto('dragLoad', '拖拽上传')"
         >拖拽上传</el-menu-item
       >
       <el-sub-menu index="2-4">
@@ -42,7 +45,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
 import {
   Document,
   Menu as IconMenu,
@@ -51,8 +53,9 @@ import {
 } from "@element-plus/icons-vue";
 import { useComStore } from "../../../store";
 import { useRouter } from "vue-router";
-
+import { useGo } from "./useGo";
 const comStore = useComStore();
+
 const router = useRouter();
 
 const handleOpen = (key: string, keyPath: string[]) => {
@@ -61,6 +64,7 @@ const handleOpen = (key: string, keyPath: string[]) => {
 const handleClose = (key: string, keyPath: string[]) => {
   console.log(key, keyPath);
 };
+const { goInto } = useGo(router);
 </script>
 
 <style scoped>

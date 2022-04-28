@@ -26,3 +26,21 @@ export const useComStore = defineStore("compositon", {
     },
   },
 });
+
+interface TabNode {
+  tabIndex: number;
+  tabName: string;
+  routeName: string;
+}
+export const useTabsStore = defineStore("tabs", {
+  state() {
+    const tabsArr: TabNode[] = [];
+    const currentRouteName = "";
+    const selectedIndex = -1;
+    return {
+      tabsArr,
+      currentRouteName,
+      selectedIndex,
+    };
+  },
+});
